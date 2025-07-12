@@ -134,7 +134,7 @@ spec:
     spec:
       containers:
       - name: bankapp
-        image: majdiitaleb/bankapp:v219
+        image: majdiitaleb/bankapp:v220
         resources:
           requests:
             memory: "256Mi"
