@@ -142,15 +142,15 @@ post {
                 <body>
                 <div style="border: 4px solid ${bannerColor}; padding: 10px;">
                 <h2>${jobName} - Build ${buildNumber}</h2>
-                <div style="background-color: ${bannerColor}; padding: 10px;">
+                <div style="background-color: ${bannerColor}; padding: 11px;">
                 <h3 style="color: white;">Pipeline Status: ${pipelineStatus.toUpperCase()}</h3>
                 </div>
-                <p>Check the <a href="${BUILD_URL}">console output</a>.</p>
+                <p>Check the <a href="${BUILD_URL}">console output </a>.</p>
                 </div>
                 </body>
                 </html>
             """
-
+http://98.82.199.11:8080/generic-webhook-trigger/invoke?token=majdidevops123
             emailext (
                 subject: "${jobName} - Build ${buildNumber} - ${pipelineStatus.toUpperCase()}",
                 body: body,
