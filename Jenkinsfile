@@ -90,7 +90,7 @@ pipeline {
             steps {
                 script {
                     withDockerRegistry(credentialsId: 'docker-cred') {
-                        sh "docker push adijaiswal/bankapp:$IMAGE_TAG"
+                        sh "docker push majditaleb/bankapp:$IMAGE_TAG"
                     }
                 }
             }
@@ -105,11 +105,11 @@ pipeline {
                     withCredentials([usernamePassword(credentialsId: 'git', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
                         sh '''
                             # Clone the Mega-Project-CD repository
-                            git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/jaiswaladi246/Mega-Project-CD.git
+                            git clone https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/majdiitaleb/bankapp.git
                             
                             # Update the image tag in the manifest.yaml file
-                            cd Mega-Project-CD
-                            sed -i "s|adijaiswal/bankapp:.*|adijaiswal/bankapp:${IMAGE_TAG}|" Manifest/manifest.yaml
+                            cd bankapp/template
+                            sed -i "s|majdiitaleb/bankapp:.*|majdiitaleb/bankapp:${IMAGE_TAG}|" Manifest/manifest.yaml
                             
                             # Confirm changes
                             echo "Updated manifest file contents:"
